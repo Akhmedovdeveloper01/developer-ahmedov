@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ahmedov — Frontend Developer</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- NAV -->
+        <nav>
+            <div class="nav-inner">
+                <a href="#hero" class="logo">Ahmedov<span>.</span>dev</a>
+                <div class="nav-links" id="navLinks">
+                    <a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a>
+                    <a href="#services" data-i18n="nav.services">Xizmatlar</a>
+                    <a href="#contact" data-i18n="nav.contact">Buyurtma</a>
+                </div>
+                <div class="nav-controls">
+                    <button class="lang-btn active" onclick="setLang('uz')">
+                        UZ
+                    </button>
+                    <button class="lang-btn" onclick="setLang('en')">EN</button>
+                    <button class="lang-btn" onclick="setLang('ru')">RU</button>
+                    <button
+                        class="theme-btn"
+                        onclick="toggleTheme()"
+                        title="Toggle theme"
+                    >
+                        🌙
+                    </button>
+                    <div class="hamburger" onclick="toggleMenu()">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <a
+                    href="#portfolio"
+                    onclick="toggleMenu()"
+                    data-i18n="nav.portfolio"
+                    >Portfolio</a
+                >
+                <a
+                    href="#contact"
+                    onclick="toggleMenu()"
+                    data-i18n="nav.contact"
+                    >Buyurtma</a
+                >
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <section id="hero">
+            <div class="hero-bg">
+                <div class="hero-orb hero-orb1"></div>
+                <div class="hero-orb hero-orb2"></div>
+                <canvas id="particles"></canvas>
+            </div>
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span data-i18n="hero.available"
+                            >Loyiha uchun ochiqman</span
+                        >
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="line1" data-i18n="hero.greeting"
+                            >Salom, men</span
+                        ><br />
+                        <span class="line2" data-i18n="hero.name">Ahmedov</span
+                        ><br />
+                        <span class="line3" data-i18n="hero.role"
+                            >Dasturchiman</span
+                        >
+                    </h1>
+                    <p class="hero-sub" data-i18n="hero.sub">
+                        Zamonaviy va tezkor web ilovalar yaratuvchi. React,
+                        TypeScript va Node.js bo'yicha 3+ yillik tajribaga
+                        egaman.
+                    </p>
+                    <div class="hero-btns">
+                        <a href="#portfolio" class="btn-primary">
+                            <span>⚡</span>
+                            <span data-i18n="hero.cta1"
+                                >Ishlarimni ko'rish</span
+                            >
+                        </a>
+                        <a href="#contact" class="btn-secondary">
+                            <span>✉</span>
+                            <span data-i18n="hero.cta2">Bog'lanish</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-terminal">
+                    <div class="terminal-bar">
+                        <div class="t-dot"></div>
+                        <div class="t-dot"></div>
+                        <div class="t-dot"></div>
+                        <span class="terminal-title">~/portfolio — zsh</span>
+                    </div>
+                    <div class="terminal-body" id="terminalBody">
+                        <div class="t-line">
+                            <span class="t-prompt">❯ </span
+                            ><span class="t-cmd">whoami</span>
+                        </div>
+                        <div class="t-line t-out">
+                            <span class="t-green">Frontend Developer</span>
+                        </div>
+                        <div class="t-line" style="margin-top: 8px">
+                            <span class="t-prompt">❯ </span
+                            ><span class="t-cmd">cat skills.json</span>
+                        </div>
+                        <div class="t-line t-out">{</div>
+                        <div class="t-line t-out">
+                            &nbsp;&nbsp;<span class="t-yellow">"core"</span>:
+                            [<span class="t-blue">"React"</span>,
+                            <span class="t-blue">"TypeScript"</span>],
+                        </div>
+                        <div class="t-line t-out">
+                            &nbsp;&nbsp;<span class="t-yellow">"style"</span>:
+                            [<span class="t-blue">"Tailwind"</span>,
+                            <span class="t-blue">"SCSS"</span>],
+                        </div>
+                        <div class="t-line t-out">
+                            &nbsp;&nbsp;<span class="t-yellow">"tools"</span>:
+                            [<span class="t-blue">"Git"</span>,
+                            <span class="t-blue">"Figma"</span>],
+                        </div>
+                        <div class="t-line t-out">
+                            &nbsp;&nbsp;<span class="t-yellow">"exp"</span>:
+                            <span class="t-green">"3+ years"</span>
+                        </div>
+                        <div class="t-line t-out">}</div>
+                        <div class="t-line" style="margin-top: 8px">
+                            <span class="t-prompt">❯ </span
+                            ><span class="t-cursor"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section id="portfolio">
+            <div class="section-inner">
+                <div class="section-label" data-i18n="portfolio.label">
+                    // ishlar
+                </div>
+                <h2 class="section-title" data-i18n="portfolio.title">
+                    Portfolio
+                </h2>
+                <p class="section-sub" data-i18n="portfolio.sub">
+                    Real muammolarni hal qiluvchi, foydalanuvchi uchun qulay
+                    ilovalar.
+                </p>
+                <div class="portfolio-grid">
+                    <div class="project-card">
+                        <div
+                            class="project-img"
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #0f2027,
+                                    #1a3a4a,
+                                    #0f2027
+                                );
+                                font-size: 2.5rem;
+                            "
+                        >
+                            🩺
+                        </div>
+                        <div class="project-body">
+                            <div class="project-title" data-i18n="p1.title">
+                                Endokrinolog Dildora
+                            </div>
+                            <div class="project-desc" data-i18n="p1.desc">
+                                Dr. Dildora Xasanovna uchun tibbiy landing page.
+                                Diabet, qalqonsimon bez va gormonal buzilishlar
+                                bo'yicha mutaxassis shifokor sayti. SEO
+                                optimizatsiya, qabulga yozilish formasi.
+                            </div>
+                            <div class="project-stack">
+                                <span class="ptag">Next.js</span
+                                ><span class="ptag">Tailwind CSS</span
+                                ><span class="ptag">SEO</span>
+                            </div>
+                            <div class="project-links">
+                                <a
+                                    href="https://endokrinolog-dildora.uz/"
+                                    target="_blank"
+                                    >🔗
+                                    <span data-i18n="proj.live"
+                                        >Live Demo</span
+                                    ></a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div
+                            class="project-img"
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #0a1628,
+                                    #1a2a4a,
+                                    #0a1628
+                                );
+                                font-size: 2.5rem;
+                            "
+                        >
+                            🫁
+                        </div>
+                        <div class="project-body">
+                            <div class="project-title" data-i18n="p2.title">
+                                Allergolog Ahmedov
+                            </div>
+                            <div class="project-desc" data-i18n="p2.desc">
+                                Dr. Xushnud Ahmedov — allergolog-immunolog uchun
+                                professional tibbiy sayt. 23+ yillik tajriba,
+                                ASIT immunoterapiya, bronxial astma. Online
+                                qabul yozilish tizimi.
+                            </div>
+                            <div class="project-stack">
+                                <span class="ptag">Next.js</span
+                                ><span class="ptag">Tailwind CSS</span
+                                ><span class="ptag">SEO</span>
+                            </div>
+                            <div class="project-links">
+                                <a
+                                    href="https://allergolog-ahmedov.uz/"
+                                    target="_blank"
+                                    >🔗
+                                    <span data-i18n="proj.live"
+                                        >Live Demo</span
+                                    ></a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div
+                            class="project-img"
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #0d0a1e,
+                                    #1a1040,
+                                    #0d0a1e
+                                );
+                                font-size: 2.5rem;
+                            "
+                        >
+                            ⚡
+                        </div>
+                        <div class="project-body">
+                            <div class="project-title" data-i18n="p3.title">
+                                Assistly — AI Biznes Yordamchisi
+                            </div>
+                            <div class="project-desc" data-i18n="p3.desc">
+                                Telegram, Instagram, WhatsApp va sayt uchun AI
+                                yordamchi platforma. Mijozlarga 24/7 avtomatik
+                                javob, qabul yozish, savollarga javob berish.
+                                Multi-til qo'llab-quvvatlash.
+                            </div>
+                            <div class="project-stack">
+                                <span class="ptag">React</span
+                                ><span class="ptag">Next.js</span
+                                ><span class="ptag">TypeScript</span
+                                ><span class="ptag">AI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://assistly.uz/" target="_blank"
+                                    >🔗
+                                    <span data-i18n="proj.live"
+                                        >Live Demo</span
+                                    ></a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div
+                            class="project-img"
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #0a1a0a,
+                                    #0f2d1a,
+                                    #0a1a0a
+                                );
+                                font-size: 2.5rem;
+                            "
+                        >
+                            💻
+                        </div>
+                        <div class="project-body">
+                            <div class="project-title" data-i18n="p4.title">
+                                Algoritmus
+                            </div>
+                            <div class="project-desc" data-i18n="p4.desc">
+                                Raqamli texnologiyalar bilan muammolaringizni
+                                hal qiluvchi IT jamoa sayti. Korporativ
+                                web-ilovalar, dizayn va dasturlash xizmatlari.
+                            </div>
+                            <div class="project-stack">
+                                <span class="ptag">React</span
+                                ><span class="ptag">TypeScript</span
+                                ><span class="ptag">Tailwind CSS</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://algoritmus.uz/" target="_blank"
+                                    >🔗
+                                    <span data-i18n="proj.live"
+                                        >Live Demo</span
+                                    ></a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div
+                            class="project-img"
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #0d0a1e,
+                                    #2a1060,
+                                    #0d0a1e
+                                );
+                                font-size: 2.5rem;
+                            "
+                        >
+                            🖥️
+                        </div>
+                        <div class="project-body">
+                            <div class="project-title" data-i18n="p5.title">
+                                Assistly — Dashboard
+                            </div>
+                            <div class="project-desc" data-i18n="p5.desc">
+                                Assistly platformasining asosiy boshqaruv
+                                paneli. AI botlarni sozlash, suhbatlar
+                                monitoringi, statistika va tahlil. To'liq
+                                funksional SPA ilova.
+                            </div>
+                            <div class="project-stack">
+                                <span class="ptag">React</span
+                                ><span class="ptag">TypeScript</span
+                                ><span class="ptag">RTK Query</span
+                                ><span class="ptag">Tailwind CSS</span>
+                            </div>
+                            <div class="project-links">
+                                <a
+                                    href="https://app.assistly.uz"
+                                    target="_blank"
+                                    >🔗
+                                    <span data-i18n="proj.live"
+                                        >Live Demo</span
+                                    ></a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services">
+            <div class="section-inner">
+                <div class="section-label" data-i18n="svcs.label">// xizmatlar</div>
+                <h2 class="section-title" data-i18n="svcs.title">Nima Qila Olaman?</h2>
+                <p class="section-sub" data-i18n="svcs.sub">Har bir xizmat sizning biznesingizni o'stirish va raqobatda oldinga chiqish uchun mo'ljallangan.</p>
+
+                <div class="services-grid">
+
+                    <!-- 1. Web sayt -->
+                    <div class="svc-card">
+                        <div class="svc-icon-wrap">🌐</div>
+                        <h3 class="svc-title" data-i18n="svc1.title">Web Sayt</h3>
+                        <p class="svc-type" data-i18n="svc1.type">Korporativ · Portfolio · Biznes</p>
+                        <p class="svc-desc" data-i18n="svc1.desc">Professional va zamonaviy web sayt — kompaniyangizning raqamli yuzi. Mijozlar sizni avval internetda topadi.</p>
+                        <ul class="svc-features">
+                            <li data-i18n="svc1.f1">Dizayn — Figma'dan pixel-perfect kod</li>
+                            <li data-i18n="svc1.f2">Mobil va planshetga moslashtirilgan</li>
+                            <li data-i18n="svc1.f3">SEO asoslar (meta, OG, sitemap)</li>
+                            <li data-i18n="svc1.f4">Tez yuklanish (Core Web Vitals)</li>
+                            <li data-i18n="svc1.f5">Ko'p tilli qo'llab-quvvatlash</li>
+                        </ul>
+                        <div class="svc-benefit">
+                            <span class="svc-benefit-label" data-i18n="svc.benefit_label">Foyda</span>
+                            <span data-i18n="svc1.benefit">Onlayn obro'ingiz oshadi, yangi mijozlar o'zi topib keladi</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. Landing page -->
+                    <div class="svc-card">
+                        <div class="svc-icon-wrap">🚀</div>
+                        <h3 class="svc-title" data-i18n="svc2.title">Landing Page</h3>
+                        <p class="svc-type" data-i18n="svc2.type">Konversiya uchun optimallashtirilgan</p>
+                        <p class="svc-desc" data-i18n="svc2.desc">Bir maqsadga yo'naltirilgan sahifa — tashrif buyuruvchini harakatga undaydigan va sotuvga aylantiradigon.</p>
+                        <ul class="svc-features">
+                            <li data-i18n="svc2.f1">A/B test uchun tayyor struktura</li>
+                            <li data-i18n="svc2.f2">CTA (call-to-action) bloklari</li>
+                            <li data-i18n="svc2.f3">Forma va Telegram/WhatsApp integratsiya</li>
+                            <li data-i18n="svc2.f4">Yandex.Metrica / Google Analytics</li>
+                            <li data-i18n="svc2.f5">1–3 kun ichida yetkazib berish</li>
+                        </ul>
+                        <div class="svc-benefit">
+                            <span class="svc-benefit-label" data-i18n="svc.benefit_label">Foyda</span>
+                            <span data-i18n="svc2.benefit">Reklama xarajati o'z samarasini beradi, konversiya ko'tariladi</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. Telegram bot -->
+                    <div class="svc-card">
+                        <div class="svc-icon-wrap">🤖</div>
+                        <h3 class="svc-title" data-i18n="svc3.title">Telegram Bot</h3>
+                        <p class="svc-type" data-i18n="svc3.type">Avtomatlashtirish · Savdo · Xizmat</p>
+                        <p class="svc-desc" data-i18n="svc3.desc">Biznesingizni 24/7 ishlaydigan bot orqali avtomatlashtiring — xodim kerak bo'lmasdan mijozlarga xizmat ko'rsating.</p>
+                        <ul class="svc-features">
+                            <li data-i18n="svc3.f1">Buyurtma qabul qilish va qayta ishlash</li>
+                            <li data-i18n="svc3.f2">To'lov tizimi integratsiyasi (Payme, Click)</li>
+                            <li data-i18n="svc3.f3">Admin panel — boshqaruv paneli</li>
+                            <li data-i18n="svc3.f4">Xabar yuborish va newsletter</li>
+                            <li data-i18n="svc3.f5">Statistika va hisobotlar</li>
+                        </ul>
+                        <div class="svc-benefit">
+                            <span class="svc-benefit-label" data-i18n="svc.benefit_label">Foyda</span>
+                            <span data-i18n="svc3.benefit">Operatsion xarajatlar kamayadi, mijozlar tez javob oladi</span>
+                        </div>
+                    </div>
+
+                    <!-- 4. CRM tizimi -->
+                    <div class="svc-card">
+                        <div class="svc-icon-wrap">📊</div>
+                        <h3 class="svc-title" data-i18n="svc4.title">CRM Tizimi</h3>
+                        <p class="svc-type" data-i18n="svc4.type">Mijozlar boshqaruvi</p>
+                        <p class="svc-desc" data-i18n="svc4.desc">Mijozlaringiz ma'lumotlari, buyurtmalar va munosabatlar tarixini bir joyda saqlang va boshqaring.</p>
+                        <ul class="svc-features">
+                            <li data-i18n="svc4.f1">Mijozlar bazasi va segmentatsiya</li>
+                            <li data-i18n="svc4.f2">Buyurtma va bitim kuzatuvi</li>
+                            <li data-i18n="svc4.f3">Xodimlar va rollar boshqaruvi</li>
+                            <li data-i18n="svc4.f4">Avtomatik eslatmalar va vazifalar</li>
+                            <li data-i18n="svc4.f5">Hisobotlar va tahlil grafiklari</li>
+                        </ul>
+                        <div class="svc-benefit">
+                            <span class="svc-benefit-label" data-i18n="svc.benefit_label">Foyda</span>
+                            <span data-i18n="svc4.benefit">Hech bir mijoz unutilmaydi, sotuv sikli qisqaradi</span>
+                        </div>
+                    </div>
+
+                    <!-- 5. Admin panel -->
+                    <div class="svc-card">
+                        <div class="svc-icon-wrap">🛠</div>
+                        <h3 class="svc-title" data-i18n="svc5.title">Admin Panel</h3>
+                        <p class="svc-type" data-i18n="svc5.type">To'liq boshqaruv tizimi</p>
+                        <p class="svc-desc" data-i18n="svc5.desc">Sayt yoki ilovangiz kontentini, foydalanuvchilar va ma'lumotlarni texnik bilimisiz boshqarish imkoniyati.</p>
+                        <ul class="svc-features">
+                            <li data-i18n="svc5.f1">Kontent (CRUD) boshqaruvi</li>
+                            <li data-i18n="svc5.f2">Foydalanuvchi va ruxsatlar tizimi</li>
+                            <li data-i18n="svc5.f3">Fayl va media menejeri</li>
+                            <li data-i18n="svc5.f4">Log va audit trail</li>
+                            <li data-i18n="svc5.f5">REST API yoki GraphQL bilan integratsiya</li>
+                        </ul>
+                        <div class="svc-benefit">
+                            <span class="svc-benefit-label" data-i18n="svc.benefit_label">Foyda</span>
+                            <span data-i18n="svc5.benefit">Dasturchi yordamisiz saytingizni o'zingiz boshqarasiz</span>
+                        </div>
+                    </div>
+
+                    <!-- 6. E-Commerce -->
+                    <div class="svc-card">
+                        <div class="svc-icon-wrap">🛒</div>
+                        <h3 class="svc-title" data-i18n="svc6.title">E-Commerce</h3>
+                        <p class="svc-type" data-i18n="svc6.type">Onlayn do'kon</p>
+                        <p class="svc-desc" data-i18n="svc6.desc">To'liq funksional onlayn do'kon — mahsulot katalogidan tortib to to'lov va yetkazib berishgacha.</p>
+                        <ul class="svc-features">
+                            <li data-i18n="svc6.f1">Mahsulot katalogi va filtrlar</li>
+                            <li data-i18n="svc6.f2">Savatcha va checkout jarayoni</li>
+                            <li data-i18n="svc6.f3">Payme, Click, Uzum to'lov integratsiyasi</li>
+                            <li data-i18n="svc6.f4">Inventar va ombor boshqaruvi</li>
+                            <li data-i18n="svc6.f5">Aksiya, kupon va chegirma tizimi</li>
+                        </ul>
+                        <div class="svc-benefit">
+                            <span class="svc-benefit-label" data-i18n="svc.benefit_label">Foyda</span>
+                            <span data-i18n="svc6.benefit">Sotuv kanali kengayadi, tun-kunduz buyurtma qabul qilasiz</span>
+                        </div>
+                    </div>
+
+                    <!-- 7. Dashboard -->
+                    <div class="svc-card svc-card--wide">
+                        <div class="svc-icon-wrap">📱</div>
+                        <h3 class="svc-title" data-i18n="svc7.title">Dashboard / Analitika</h3>
+                        <p class="svc-type" data-i18n="svc7.type">Ma'lumotlar vizualizatsiyasi · Hisobotlar</p>
+                        <p class="svc-desc" data-i18n="svc7.desc">Biznesingizdagi barcha raqamlarni real vaqtda ko'rish — qaror qabul qilish uchun aniq ma'lumotlarga ega bo'ling.</p>
+                        <ul class="svc-features">
+                            <li data-i18n="svc7.f1">Real-time grafik va diagrammalar</li>
+                            <li data-i18n="svc7.f2">KPI va metrikalar paneli</li>
+                            <li data-i18n="svc7.f3">Filtrlash, qidirish, eksport (PDF/Excel)</li>
+                            <li data-i18n="svc7.f4">Ko'p foydalanuvchi va ruxsatlar</li>
+                            <li data-i18n="svc7.f5">Mobil qurilmaga moslashtirilgan interfeys</li>
+                            <li data-i18n="svc7.f6">Tashqi API va ma'lumotlar bazasi bilan integratsiya</li>
+                        </ul>
+                        <div class="svc-benefit">
+                            <span class="svc-benefit-label" data-i18n="svc.benefit_label">Foyda</span>
+                            <span data-i18n="svc7.benefit">Taxmin emas, aniq raqamlarga asoslanib biznesni o'stirasiz</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="svc-cta">
+                    <p data-i18n="svcs.cta_text">Qaysi xizmat siz uchun kerakligini bilmaysizmi?</p>
+                    <a href="#contact" class="btn-primary"><span>💬</span> <span data-i18n="svcs.cta_btn">Maslahat olish</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT / ORDER -->
+        <section id="contact">
+            <div class="section-inner">
+                <div class="section-label" data-i18n="contact.label">
+                    // buyurtma
+                </div>
+                <h2 class="section-title" data-i18n="contact.title">
+                    Loyiha Buyurtma Qiling
+                </h2>
+                <div class="order-wrap">
+                    <!-- Left: info -->
+                    <div class="order-info">
+                        <p data-i18n="contact.sub">
+                            Sizning g'oyangizni haqiqatga aylantiramiz. Quyidagi
+                            formani to'ldiring — 24 soat ichida javob beraman!
+                        </p>
+                        <div class="contact-links">
+                            <a
+                                href="https://t.me/developer_uz"
+                                class="contact-link"
+                            >
+                                <span class="icon">✈️</span>
+                                <div>
+                                    <strong>Telegram</strong><br /><small
+                                        >@developer_uz</small
+                                    >
+                                </div>
+                            </a>
+                            <a
+                                href="mailto:ahmedov@example.com"
+                                class="contact-link"
+                            >
+                                <span class="icon">✉️</span>
+                                <div>
+                                    <strong>Email</strong><br /><small
+                                        >ahmedov@example.com</small
+                                    >
+                                </div>
+                            </a>
+                        </div>
+                        <div
+                            class="section-label"
+                            style="margin-bottom: 12px"
+                            data-i18n="contact.services_label"
+                        >
+                            // xizmatlar
+                        </div>
+                        <div class="services-list">
+                            <div class="service-item" data-i18n="svc1">
+                                🌐 Web sayt — korporativ, portfolio, biznes
+                            </div>
+                            <div class="service-item" data-i18n="svc2">
+                                🚀 Landing page — konversiya uchun
+                                optimallashtirilgan
+                            </div>
+                            <div class="service-item" data-i18n="svc3">
+                                🤖 Telegram bot — avtomatlashtirish, savdo
+                            </div>
+                            <div class="service-item" data-i18n="svc4">
+                                📊 CRM tizimi — mijozlar boshqaruvi
+                            </div>
+                            <div class="service-item" data-i18n="svc5">
+                                🛠 Admin panel — to'liq boshqaruv tizimi
+                            </div>
+                            <div class="service-item" data-i18n="svc6">
+                                🛒 E-Commerce — onlayn do'kon
+                            </div>
+                            <div class="service-item" data-i18n="svc7">
+                                📱 Dashboard — analitika va hisobotlar
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: order form -->
+                    <div class="order-form">
+                        <div id="orderFormContent">
+                            <div
+                                class="order-form-title"
+                                data-i18n="form.title"
+                            >
+                                Ariza Qoldirish
+                            </div>
+                            <div
+                                class="order-form-sub"
+                                data-i18n="form.subtitle"
+                            >
+                                // barcha maydonlarni to'ldiring
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label data-i18n="form.name">// ISM</label>
+                                    <input
+                                        type="text"
+                                        id="f-name"
+                                        placeholder="Abdulloh Ahmedov"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label data-i18n="form.phone"
+                                        >// TELEFON</label
+                                    >
+                                    <input
+                                        type="tel"
+                                        id="f-phone"
+                                        placeholder="+998 90 123 45 67"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 14px">
+                                <label data-i18n="form.service"
+                                    >// XIZMAT TURI</label
+                                >
+                                <select id="f-service">
+                                    <option
+                                        value=""
+                                        data-i18n="form.service_placeholder"
+                                    >
+                                        — Xizmatni tanlang —
+                                    </option>
+                                    <option
+                                        value="website"
+                                        data-i18n="opt.website"
+                                    >
+                                        🌐 Web sayt
+                                    </option>
+                                    <option
+                                        value="landing"
+                                        data-i18n="opt.landing"
+                                    >
+                                        🚀 Landing page
+                                    </option>
+                                    <option value="bot" data-i18n="opt.bot">
+                                        🤖 Telegram bot
+                                    </option>
+                                    <option value="crm" data-i18n="opt.crm">
+                                        📊 CRM tizimi
+                                    </option>
+                                    <option value="admin" data-i18n="opt.admin">
+                                        🛠 Admin panel
+                                    </option>
+                                    <option
+                                        value="ecommerce"
+                                        data-i18n="opt.ecommerce"
+                                    >
+                                        🛒 E-Commerce do'kon
+                                    </option>
+                                    <option
+                                        value="dashboard"
+                                        data-i18n="opt.dashboard"
+                                    >
+                                        📱 Dashboard / Analitika
+                                    </option>
+                                    <option value="other" data-i18n="opt.other">
+                                        💡 Boshqa
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 14px">
+                                <label data-i18n="form.budget"
+                                    >// BYUDJET</label
+                                >
+                                <div class="budget-chips" id="budgetChips">
+                                    <button
+                                        class="budget-chip"
+                                        data-val="100-300"
+                                    >
+                                        $100–300
+                                    </button>
+                                    <button
+                                        class="budget-chip"
+                                        data-val="300-600"
+                                    >
+                                        $300–600
+                                    </button>
+                                    <button
+                                        class="budget-chip"
+                                        data-val="600-1000"
+                                    >
+                                        $600–1000
+                                    </button>
+                                    <button
+                                        class="budget-chip"
+                                        data-val="1000+"
+                                    >
+                                        $1000+
+                                    </button>
+                                    <button
+                                        class="budget-chip"
+                                        data-val="discuss"
+                                        data-i18n="budget.discuss"
+                                    >
+                                        Kelishamiz
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 14px">
+                                <label data-i18n="form.desc"
+                                    >// LOYIHA HAQIDA</label
+                                >
+                                <textarea
+                                    id="f-desc"
+                                    placeholder="Loyihangiz haqida qisqacha yozing: maqsad, funksiyalar, o'xshash saytlar..."
+                                ></textarea>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 14px">
+                                <label data-i18n="form.deadline"
+                                    >// MO'LJALLANGAN MUDDAT</label
+                                >
+                                <select id="f-deadline">
+                                    <option
+                                        value=""
+                                        data-i18n="form.deadline_placeholder"
+                                    >
+                                        — Muddatni tanlang —
+                                    </option>
+                                    <option value="1week" data-i18n="dl.1w">
+                                        ⚡ 1 hafta (tezkor)
+                                    </option>
+                                    <option value="2weeks" data-i18n="dl.2w">
+                                        📅 2 hafta
+                                    </option>
+                                    <option value="1month" data-i18n="dl.1m">
+                                        🗓 1 oy
+                                    </option>
+                                    <option value="2months" data-i18n="dl.2m">
+                                        📆 2 oy
+                                    </option>
+                                    <option
+                                        value="flexible"
+                                        data-i18n="dl.flex"
+                                    >
+                                        🕐 Kelishamiz
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-divider"></div>
+                            <div class="form-submit">
+                                <span class="form-note" data-i18n="form.note"
+                                    >// 24 soat ichida javob</span
+                                >
+                                <button
+                                    class="btn-primary"
+                                    style="border: none"
+                                    onclick="submitOrder()"
+                                >
+                                    <span>🚀</span>
+                                    <span data-i18n="form.send"
+                                        >Ariza Yuborish</span
+                                    >
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="order-success" id="orderSuccess">
+                            <div class="success-icon">✅</div>
+                            <h3 data-i18n="success.title">
+                                Ariza qabul qilindi!
+                            </h3>
+                            <p data-i18n="success.sub">
+                                Tez orada siz bilan bog'lanaman. Telegram orqali
+                                ham murojaat qilishingiz mumkin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span>©</span> 2024 — Built with <span>❤️</span> using vanilla
+            HTML/CSS/JS
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
